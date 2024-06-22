@@ -1,33 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	@apply min-h-screen w-full bg-slate-100 font-custom text-slate-900 dark:bg-slate-900 dark:text-slate-100;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+header {
+	@apply sticky top-0 z-10 w-full border-b border-slate-300 bg-slate-100 dark:border-slate-700 dark:bg-slate-900;
+}
+
+footer {
+	@apply w-full border-t border-slate-300 dark:border-slate-700;
+}
+
+header section,
+main section,
+footer section {
+	@apply container mx-auto max-w-7xl px-5 py-2;
+}
+
+header section {
+	@apply relative flex items-center justify-between;
+}
+
+footer section {
+	@apply my-7 flex w-full flex-col items-center lg:flex-row;
+}
+
+footer section h4 {
+	@apply text-2xl lg:mr-6;
+}
+
+footer section address {
+	@apply flex items-center gap-5;
+}
+
+footer section address a {
+	@apply rounded-full p-2 duration-200 hover:bg-slate-500/20;
+}
+
+header section ul {
+	@apply hidden items-center justify-center gap-[15%] lg:flex;
+}
+
+header section section {
+	@apply absolute left-0 top-0 z-20 h-screen w-full overflow-hidden bg-slate-100 dark:bg-slate-900;
+}
+
+header section section ul {
+	@apply flex h-full w-full flex-col items-center justify-center gap-[5%];
+}
+
+article {
+	@apply mb-20 max-w-[80%] text-center dark:text-gray-100 md:mb-0 md:max-w-[45%] md:text-left;
+}
+
+article h4 {
+	@apply text-green-500;
+}
+
+article h2 {
+	@apply mt-3 text-3xl font-semibold;
+}
+
+article p {
+	@apply mt-8;
+}
+
+article p span {
+	@apply text-green-500;
+}
+
+h1 {
+	@apply text-3xl font-semibold;
+}
+
+.open-dropdown {
+	@apply rounded-full p-2 duration-200 hover:bg-slate-500/20 lg:hidden;
+}
+
+.close-dropdown {
+	@apply absolute right-2 top-2 rounded-full p-2 duration-200 hover:bg-slate-500/20 lg:hidden;
+}
+
+main .home-section {
+	@apply flex min-h-screen w-full flex-col items-center justify-center gap-20 md:flex-row;
+}
+
+main .portfolio-section {
+	@apply mb-32 mt-10 min-h-screen w-full;
+}
+
+main .about-section {
+	@apply mb-32 mt-10 min-h-screen w-full;
+}
+
+main .portfolio-section p {
+	@apply mt-3 max-w-prose text-lg;
+}
+
+main .portfolio-section ul {
+	@apply mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.project {
+	@apply flex gap-5 rounded-md border border-green-500/10 px-6 py-4 duration-200 hover:border-green-500/20 hover:bg-green-500/10;
+}
+
+.project div {
+	@apply h-fit rounded-full border-[3px] border-green-500 p-1;
+}
+
+.project section {
+	@apply flex-[8];
+}
+
+.project section h4 {
+	@apply text-xl font-medium;
+}
+
+.project section p {
+	@apply text-base;
+}
+
+.project section div {
+	@apply mt-5 flex w-full items-center justify-between border-none;
+}
+
+.project section div a {
+	@apply flex items-center gap-2 text-sm text-green-500 duration-200 hover:text-green-700;
+}
+
+.title {
+	@apply mt-10 w-fit border-b-[3px] border-green-500 pb-1;
+}
+
+.about-section div div h2 {
+	@apply text-2xl font-medium;
+}
+
+.main-title {
+	@apply text-2xl font-medium;
+}
+
+.theme-icon {
+	@apply rounded-full p-2 duration-200 hover:bg-slate-500/20;
+}
+
+.active-nav {
+	@apply rounded-full bg-slate-500/40 px-6 pb-[9px] pt-[5px] duration-200 hover:bg-slate-500/55;
+}
+
+.inactive-nav {
+	@apply rounded-full px-6 pb-[9px] pt-[5px] duration-200 hover:bg-slate-500/20;
+}
+
+.image-container {
+	@apply mt-10 rounded-full border-[6px] border-green-500 p-2 md:mt-0;
+}
+
+.image-container img {
+	@apply h-[200px] w-[200px] rounded-full object-cover;
+}
+
+.work-container {
+	@apply mt-10 space-y-5;
+}
+
+.work-container li div {
+	@apply flex w-full flex-col gap-6 rounded bg-green-500/20 px-3 py-5 md:flex-row md:gap-10;
+}
+
+.work-container li div p {
+	@apply flex items-center gap-2;
+}
+
+.present-ping {
+	@apply -mt-2 h-1 w-1 animate-ping rounded-full bg-green-500;
+}
+
+.work-container li section {
+	@apply hidden;
+}
+
+.list-container {
+	@apply mt-10 flex flex-wrap gap-2;
+}
+
+.list-container li {
+	@apply bg-green-500/10 px-5 py-2;
+}
+
+::-webkit-scrollbar {
+	@apply h-[7px] w-[7px] bg-inherit;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-lg bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600;
 }
