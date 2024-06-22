@@ -13,14 +13,16 @@ import { Theme, ThemeContextType } from '../typescript/types';
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-	const [theme, setTheme] = useState<Theme>(getInitialTheme);
+	const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
 
 	const toggleTheme = () => {
 		setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
 	};
 
 	useEffect(() => {
-		localStorage.setItem('theme', theme);
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem('theme', theme);
+		}
 		if (theme === 'dark') {
 			document.documentElement.classList.add('dark');
 		} else {

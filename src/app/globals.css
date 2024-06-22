@@ -99,7 +99,7 @@ main .about-section {
 }
 
 main .portfolio-section p {
-	@apply mt-3 max-w-prose text-lg;
+	@apply mt-3 max-w-prose;
 }
 
 main .portfolio-section ul {
@@ -120,10 +120,6 @@ main .portfolio-section ul {
 
 .project section h4 {
 	@apply text-xl font-medium;
-}
-
-.project section p {
-	@apply text-base;
 }
 
 .project section div {
