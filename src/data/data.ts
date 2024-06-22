@@ -75,6 +75,12 @@ const projects = [
 		linkOne: 'https://lego-space-x.onrender.com/',
 		linkTwo: 'https://github.com/developer-assets/Lego-SpaceX-Website/',
 	},
+	{
+		name: 'Financly',
+		desc: 'A platform to handle all your expenditure and income and give you analytics using graphs. Export & import to CSV supported.',
+		linkOne: 'https://financly.onrender.com/',
+		linkTwo: 'https://github.com/developer-assets/Financly',
+	},
 ];
 
 export { navs, skills, languages, interests, work, projects };
