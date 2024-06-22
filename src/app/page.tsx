@@ -1,12 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image from 'next/image';
 
 const Home: React.FC = () => {
-	AOS.init();
+	useEffect(() => {
+		AOS.init();
+	}, []);
 
 	return (
 		<main>
